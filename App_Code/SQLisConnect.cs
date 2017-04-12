@@ -19,7 +19,7 @@ public static class SQLisConnect
 		 try
         {
             sc.Close();
-            sc.ConnectionString = @"Server=SILAS-PC\LOCALHOST; Database=Lab2;Trusted_Connection=Yes;";
+            sc.ConnectionString = @"Server=SILAS-PC\LOCALHOST; Database=WLS;Trusted_Connection=Yes;";
             sc.Open();
             System.Diagnostics.Debug.WriteLine("databse connection opened");
               
@@ -50,7 +50,7 @@ public static class SQLisConnect
 
     public static String DatabaseSelect(String Statement)
     {
-        String ReturnedSQLData = ""; 
+        String ReturnedSQLData = "N/A"; 
          
         try
         {
@@ -58,6 +58,7 @@ public static class SQLisConnect
             insert.Connection = sc;
             insert.CommandText = Statement;
             insert.ExecuteNonQuery();
+            ReturnedSQLData = insert.ExecuteScalar().ToString();
          }
         catch (System.Data.SqlClient.SqlException sqlException)
         {
@@ -65,7 +66,6 @@ public static class SQLisConnect
             System.Diagnostics.Debug.WriteLine(sqlException.Message);
 
         }
-        ReturnedSQLData =insert.ExecuteScalar().ToString();
         return ReturnedSQLData;
     }
 

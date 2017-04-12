@@ -72,7 +72,7 @@
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="profile-ava">
-                                    <asp:Image ID="ProfilePIC" alt="Profile Picture" runat="server" Height="39" Width="39" src="../images/Default PP.jpg" />
+                                    <asp:Image ID="ProfilePIC" alt="Profile Picture" runat="server" Height="39" Width="39" ImageUrl="../data/sample/Default PP.jpg" />
                                 </span>
                                 <span class="username">
                                     <asp:Label ID="NavUsername" runat="server" Text="username"></asp:Label>
@@ -144,11 +144,11 @@
 
                         </div>
                         <!--END ROW INSTRUCTIONS-->
+                          </div>
 
-
-                        <div class="row">
+                        <div class="row" style="padding-right: 30px;" >
                             <!--ROW SAVE-->
-                            <div>
+                            <div class="row">
                                 <a href="save-confirmation.html">
                                     <div class="save-app">
                                         <!--START DIV EDIT BUTTON-->
@@ -160,7 +160,7 @@
                             <!--END SAVE COL-->
                         </div>
                         <!--END ROW SAVE BUTTON-->
-                    </div>
+                  
 
                     <!--END ROW Container..............-->
                     <div class="row">
@@ -184,21 +184,23 @@
                                         <div class="panel-body">
                                             <!--START DIVE BODY-->
 
-                                            <div class="col-md-12 col-md-toppad">
+                                            <div class="col-md-toppad">
                                                 <!--START RWO PANEL BODY-->
-                                                <div class="col-md-3 col-lg-3" align="center">
-                                                    <div>
+                                                <div>
+                                                    <div align="center">
                                                         <asp:Image ID="ProfileImg" alt="Profile Picture" runat="server" src="../data/sample/Default PP.jpg" class="img-circle img-responsive profile-image" />
                                                     </div>
-                                                    <div class ="form">
-                                                    <div class="col-md-1">
+                                                    <br />
+                                                    <div>
+                                                    <div class="col-md-2" align =" left">
                                                         <asp:FileUpload ID="FileUploadpic" runat="server" />
                                                     </div>
-<%--                                                    <div class="col-md-7">
+                                                    <div class="col-md-10" align =" Right">
                                                         <asp:Button ID="PictureUpload" runat="server" Text="Upload" OnClick="UploadClick" />
-                                                    </div>--%>
-                                                        </div>
-                                                    <!---our public profile image--->
+                                                    </div>
+                                                        <br/>
+                                                    </div>
+                                                    <!--- public profile image--->
                                                 </div>
                                                 <!---END COL-MD-3--->
                                             </div>
@@ -210,26 +212,22 @@
                                                     <tbody>
                                                         <tr>
                                                             <td>Username:</td>
+                                                            <td></td>
                                                             <td>
                                                                 <asp:Label ID="ProUsername" runat="server" Text="Username"></asp:Label>
                                                             </td>
                                                         </tr>
-                                                        <tr>
+                                                        <tr ID="tablePosition" hidden="hidden">
                                                             <td>Position:</td>
+                                                            <td></td>
                                                             <td>
                                                                 <asp:Label ID="Position" runat="server" Text="Not Chosen"></asp:Label>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Departments:</td>
-                                                            <td>
-                                                                <asp:ListBox ID="Departmentlist" runat="server"></asp:ListBox>
-                                                                <asp:Label ID="Departmentlbl" runat="server" Text="" Visible="false"></asp:Label>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
 
                                                             <td>Email:</td>
+                                                            <td></td>
                                                             <td>
                                                                 <div class="form-group">
                                                                     <!---email field--->
@@ -240,6 +238,32 @@
                                                             </td>
 
                                                         </tr>
+                                                        <tr>
+                                                            <td>Departments:</td>
+
+                                                            <td>
+                                                                <div>
+                                                                <asp:Label ID="Departmentlist" runat="server" Text="" Visible="false"></asp:Label>
+                                                                    <br />
+                                                                <asp:DropDownList ID="Department"  align =" left"  runat="server" Visible="true" class="col-md-1" CssClass="list-group-item" autofocus="autofocus">
+                                                                    <asp:ListItem>Add Team</asp:ListItem>
+                                                                    <asp:ListItem>Animal Care</asp:ListItem>
+                                                                    <asp:ListItem>Other</asp:ListItem>
+                                                                    <asp:ListItem>Outreach</asp:ListItem>
+                                                                    <asp:ListItem>Transport</asp:ListItem>
+                                                                    <asp:ListItem>Veterinarian</asp:ListItem>
+                                                                </asp:DropDownList>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                <div>
+                                                                    <asp:Button ID="AddTeamBtn" CssClass ="buttons" align =" Right"  runat="server" Text=" Add " class="col-md-10" OnClick ="AddTeam"/>
+
+                                                                </div>
+                                                            </td>
+                                                           
+                                                        </tr>
+
 
                                                     </tbody>
                                                 </table>
@@ -286,7 +310,7 @@
                                                             <td>
                                                                 <div class="form-group">
                                                                     <!---dob field--->
-                                                                    <asp:TextBox ID="DOB" runat="server" class="form-control" type="date" value="MM/DD/YR" autofocus="autofocus"></asp:TextBox>
+                                                                    <asp:TextBox ID="DOB" runat="server" class="form-control" type="date" value="MM/DD/YR" ></asp:TextBox>
                                                                     <%--<input class="form-control" id="DOB1" type="text" value="MM/DD/YR">--%>
                                                                 </div>
                                                             </td>
@@ -651,14 +675,14 @@
                                                                 <br />
                                                                 <asp:Label ID="DayTitle" runat="server" Text="Days of the Week"></asp:Label>
                                                             </td>
-                                                            <td colspan="2">
-                                                                <br />
-                                                                <br />
-                                                                <asp:Label ID="DayStart" runat="server" Text="Start Time:"></asp:Label></td>
                                                             <td>
                                                                 <br />
                                                                 <br />
-                                                                <asp:Label ID="DayEnd" runat="server" Text="End Time:"></asp:Label>
+                                                                <asp:Label ID="DayStart" runat="server" Text="Start Time:" Visible="false" ></asp:Label></td>
+                                                            <td>
+                                                                <br />
+                                                                <br />
+                                                                <asp:Label ID="DayEnd" runat="server" Text="End Time:" Visible="false" ></asp:Label>
                                                             </td>
                                                         </tr>
 
@@ -666,90 +690,91 @@
 
                                                             <td>
                                                                 <div class="form-group">
-                                                                    <asp:Label ID="Day1" runat="server" Text="Monday:"></asp:Label>
+                                                                    <asp:CheckBox ID="Day1" runat="server" Text=" Monday:" CssClass="checkbox" OnDataBinding ="DayCheckedChanged"/>
                                                                 </div>
                                                             </td>
-                                                            <td colspan="2">
+                                                            <td >
                                                                 <div class="form-group">
-                                                                    <asp:TextBox ID="Day1St" runat="server" TextMode="Time"></asp:TextBox>
+                                                                    <asp:TextBox ID="Day1St" runat="server" TextMode="Time" Visible="false"></asp:TextBox>
                                                                 </div>
                                                             </td>
                                                             <td>
                                                                 <div class="form-group">
-                                                                    <asp:TextBox ID="Day1f" runat="server" TextMode="Time"></asp:TextBox>
+                                                                    <asp:TextBox ID="Day1f" runat="server" TextMode="Time" Visible="false"></asp:TextBox>
                                                                 </div>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td>
                                                                 <div class="form-group">
-                                                                    <asp:Label ID="Day2" runat="server" Text="Tuesday:"></asp:Label>
+                                                                    <asp:CheckBox ID="Day2" runat="server" Text=" Tuesday:" CssClass="checkbox" OnCheckedChanged ="DayCheckedChanged"/>
+
                                                                 </div>
                                                             </td>
-                                                            <td colspan="2">
+                                                            <td >
                                                                 <div class="form-group">
-                                                                    <asp:TextBox ID="Day2St" runat="server" TextMode="Time"></asp:TextBox>
+                                                                    <asp:TextBox ID="Day2St" runat="server" TextMode="Time" Visible="false" ></asp:TextBox>
                                                                 </div>
                                                             </td>
                                                             <td>
                                                                 <div class="form-group">
-                                                                    <asp:TextBox ID="Day2f" runat="server" TextMode="Time"></asp:TextBox>
+                                                                    <asp:TextBox ID="Day2f" runat="server" TextMode="Time" Visible="false" ></asp:TextBox>
                                                                 </div>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td>
                                                                 <div class="form-group">
-                                                                    <asp:Label ID="Day3" runat="server" Text="Wednesday:"></asp:Label>
+                                                                    <asp:CheckBox ID="Day3" runat="server" Text=" Wednesday:" CssClass="checkbox" OnCheckedChanged ="DayCheckedChanged"/>
                                                                 </div>
                                                             </td>
-                                                            <td colspan="2">
+                                                            <td >
                                                                 <div class="form-group">
-                                                                    <asp:TextBox ID="Day3St" runat="server" TextMode="Time"></asp:TextBox>
+                                                                    <asp:TextBox ID="Day3St" runat="server" TextMode="Time" Visible="false" ></asp:TextBox>
                                                                 </div>
                                                             </td>
                                                             <td>
                                                                 <div class="form-group">
-                                                                    <asp:TextBox ID="Day3f" runat="server" TextMode="Time"></asp:TextBox>
+                                                                    <asp:TextBox ID="Day3f" runat="server" TextMode="Time" Visible="false" ></asp:TextBox>
                                                                 </div>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td>
                                                                 <div class="form-group">
-                                                                    <asp:Label ID="Day4" runat="server" Text="Thursday:"></asp:Label>
+                                                                    <asp:CheckBox ID="Day4" runat="server" Text=" Thursday:" CssClass="checkbox" OnCheckedChanged ="DayCheckedChanged"/>
                                                                 </div>
                                                             </td>
-                                                            <td colspan="2">
+                                                            <td >
                                                                 <div class="form-group">
-                                                                    <asp:TextBox ID="Day4St" runat="server" TextMode="Time"></asp:TextBox>
+                                                                    <asp:TextBox ID="Day4St" runat="server" TextMode="Time" Visible="false" ></asp:TextBox>
                                                                 </div>
                                                             </td>
                                                             <td>
-                                                                <div class="form-group">
-                                                                    <asp:TextBox ID="Day4f" runat="server" TextMode="Time"></asp:TextBox>
+                                                                <div>
+                                                                    <asp:TextBox ID="Day4f" runat="server" TextMode="Time" Visible="false" ></asp:TextBox>
                                                                 </div>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td>
                                                                 <div class="form">
-                                                                    <asp:Label ID="Day5" runat="server" Text="Friday"></asp:Label>
-                                                                </div>
-                                                            </td>
-                                                            <td colspan="2">
-                                                                <div class="form-group">
-                                                                    <asp:TextBox ID="Day5St" runat="server" TextMode="Time"></asp:TextBox>
+                                                                    <asp:CheckBox ID="Day5" runat="server" Text=" Friday:" CssClass="checkbox" OnCheckedChanged ="DayCheckedChanged"/>
                                                                 </div>
                                                             </td>
                                                             <td>
                                                                 <div class="form-group">
-                                                                    <asp:TextBox ID="Day5f" runat="server" TextMode="Time"></asp:TextBox>
+                                                                    <asp:TextBox ID="Day5St" runat="server" TextMode="Time" Visible="false" ></asp:TextBox>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="form-group">
+                                                                    <asp:TextBox ID="Day5f" runat="server" TextMode="Time" Visible="false" ></asp:TextBox>
                                                                 </div>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="2">
+                                                            <td>
                                                                 <!---end seasonal checkbox--->
                                                             </td>
                                                             <td colspan="2">
@@ -857,6 +882,7 @@
                                                                         <asp:DropDownList ID="Filetype" runat="server" class="form-group">
                                                                             <asp:ListItem Selected="True" Value="&quot;&quot;">Select File Type</asp:ListItem>
                                                                             <asp:ListItem>Rabies Vaccination</asp:ListItem>
+                                                                            <asp:ListItem>Recommendation letter</asp:ListItem>
                                                                             <asp:ListItem>Rehab Permit</asp:ListItem>
                                                                             <asp:ListItem>Resume</asp:ListItem>
                                                                         </asp:DropDownList>
@@ -893,17 +919,7 @@
                                     <!---END COL-MD-6--->
 
                                 </div>
-                                <!---END Second row--->
-                                <!--END ATTACH DOCS-->
-                                <!--END PROFILE-->
-
-
-                                <!--END ROW SAVE BUTTON-->
-                            </div>
-                        </div>
-                        <!--PROFILE-->
-                        </div>
-                            <!---END Second row--->
+               
                             <!-------------------------------------------------------------------------------------------------->
 
                             <!--START OUTREACH TEAM INFO-->
@@ -1416,7 +1432,17 @@
                                 <!--______________________________________________________________________________________________________-->
                                 <!---END availabilityINFO--->
                                 <!--START ATTACH DOCS-->
+                 <!---END Second row--->
+                                <!--END ATTACH DOCS-->
+                                <!--END PROFILE-->
 
+
+                                <!--END ROW SAVE BUTTON-->
+                            </div>
+                        </div>
+                        <!--PROFILE-->
+                       
+                            <!---END Second row--->
                         <!--END DIV CONTAINER-->
                         <div class="row" style="padding-right: 30px;">
                             <div class="row">

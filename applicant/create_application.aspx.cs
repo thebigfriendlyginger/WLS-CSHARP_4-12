@@ -12,37 +12,96 @@ using System.Data;
 public partial class create_application : System.Web.UI.Page
 {
     String Enti;
-    String UserID = "silasademola";
+    String UserID = "";
     String UserFirstN = "FIRSTNAME";
     String UserLastN = "LASTNAME";
     String UserEmail = "EMAIL";
     String PrimKey;
     String AppStatues = "";
-    String TP = "";
+    String TeamType = "";
     String Statement = "";
-    String fileName = "";
+    String fileName = ""; 
+    String filetype = "";
     String contentType = "";
     int fileSize;
     String fileExtension = "";
     int uploaded = 0;
+    String AlldepartLable = "";
     bool saved = false;
 
 
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        Enti = (String)Session["username"];
+        UserID = (String)Session["username"];
+        UserID = "Steve";
+
         String HTMLField = "";
+        
+        //populateUserInfo(UserID);
 
         if (!IsPostBack)
         {
+
+            try
+            {
+
+                //UserID = (String)Session["Username"];
+                Enti = "Users";
+                PrimKey = "UserName";
+
+                UserFirstN = Repostdata(UserFirstN, Enti, PrimKey);
+                UserLastN = Repostdata(UserLastN, Enti, PrimKey);
+                UserEmail = Repostdata(UserEmail, Enti, PrimKey);
+
+                NavUsername.Text = UserFirstN + " " + UserLastN;
+                ProUsername.Text = UserFirstN + " " + UserLastN;
+                Position.Text = "IDK";
+                Email.Text = UserEmail;
+
+            }
+            catch (System.Data.SqlClient.SqlException sqlException)
+            {
+                // Throws database errors in a Message Box to alert the user
+                System.Diagnostics.Debug.WriteLine(sqlException.Message);
+            }
+
+            if (ProfileImg.ImageUrl == "")
+            {
+                ProfileImg.ImageUrl = "../WLS-CSHARP/Data/"
+                + "Sample/Default PP.jpg";
+            }
+
+            if (AppStatues.Contains("Saved"))
+            {
+                         
+
+            try
+            {
+                // Links application to database, opens SQL connection and establishs insert string
+                System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
+
+                SQLisConnect.SQLConnection();
+
+                Statement = "SELECT usertype from dbo.user WHERE username =" + UserID;
+                AppStatues = SQLisConnect.DatabaseSelect(Statement);
+
+            }
+            catch (System.Data.SqlClient.SqlException sqlException)
+            {
+                // Throws any DB errors in a Message Box for user
+                System.Diagnostics.Debug.WriteLine(sqlException.Message);
+                HTMLField = "Error Loading";
+            }
+
+
             if (AppStatues.Equals("Started"))
             {
                 try
                 {
 
                     System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-                    sc.ConnectionString = @"Server=SILAS-PC\LOCALHOST; Database=Lab2;Trusted_Connection=Yes;";
+                    sc.ConnectionString = @"Server=SILAS-PC\LOCALHOST; Database=WLS;Trusted_Connection=Yes;";
                     sc.Open();
                     System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
                     insert.Connection = sc;
@@ -60,7 +119,7 @@ public partial class create_application : System.Web.UI.Page
                             Allergies.Text = volReader["ALLERGIESSPECIFY"].ToString();
                             limitations.Text = volReader["LIMITATIONSSPECIFY"].ToString();
                             MedicalConditions.Text = volReader["CONDITIONS"].ToString();
-                            TP = volReader["TP"].ToString();
+                            TeamType = volReader["TeamType"].ToString();
                         }
                     }
 
@@ -81,7 +140,19 @@ public partial class create_application : System.Web.UI.Page
                         }
                     }
 
-                    
+                    insert.CommandText = "";
+                    insert.CommandText = "Select filepath from datafiles where lastupdated = @USERNAME and Filetype = profile pic;";
+                    using (SqlDataReader volReader = insert.ExecuteReader())
+                    {
+                        while (volReader.Read())
+                        {
+                            ProfileImg.ImageUrl = volReader["filepath"].ToString();
+
+                        }
+                    }
+
+
+
 
                 }
                 catch (System.Data.SqlClient.SqlException sqlException)
@@ -110,61 +181,39 @@ public partial class create_application : System.Web.UI.Page
                     HTMLField = "Error Loading";
                 }
 
-                try
-                {
+                
+            }
+            }
 
-                    //UserID = (String)Session["Username"];
-                    Enti = "Users";
-                    PrimKey = "USERNAME";
-
-                    UserFirstN = Repostdata(UserFirstN, Enti, PrimKey);
-                    UserLastN = Repostdata(UserLastN, Enti, PrimKey);
-                    UserEmail = Repostdata(UserEmail, Enti, PrimKey);
-
-                    NavUsername.Text = UserFirstN + " " + UserLastN;
-                    Position.Text = "IDK";
-                    Email.Text = UserEmail;
-                    ProfileImg.ImageUrl = "http:/localhost:58532/WLS-CSHARP/images/"
-                        + "Default PP.jpg";
-                }
-                catch (System.Data.SqlClient.SqlException sqlException)
-                {
-                    // Throws database errors in a Message Box to alert the user
-                    System.Diagnostics.Debug.WriteLine(sqlException.Message);
-                }
-
-            }
-            if (TP.Contains("1"))
-            {
-                Departmentlist.Items.Add("Animal Care");
-                frmAnimalCare.Visible = true;
-            }
-            if (TP.Contains("2"))
-            {
-                Departmentlist.Items.Add("Other");
-                frmFrontDesk.Visible = true;
-            }
-            if (TP.Contains("3"))
-            {
-                Departmentlist.Items.Add("Outreach");
-                frmOutreach.Visible = true;
-            }
-            if (TP.Contains("4"))
-            {
-                Departmentlist.Items.Add("Transport");
-                frmTransport.Visible = true;
-            }
-            if (TP.Contains("5"))
-            {
-                Departmentlist.Items.Add("Vet");
-                frmVet.Visible = true;
-            }
-            if (TP.Contains("None")||(TP == ""))
-            {
-                Departmentlist.Visible = false;
-                Departmentlbl.Text = "None";
-                Departmentlbl.Visible = true;
-            }
+            //if (TeamType.Contains("1"))
+            //{
+            //    Departmentlist.Text.Concat(" Animal Care");
+            //    frmAnimalCare.Visible = true;
+            //}
+            //if (TeamType.Contains("2"))
+            //{
+            //    Departmentlist.Items.Add("Other");
+            //    frmFrontDesk.Visible = true;
+            //}
+            //if (TeamType.Contains("3"))
+            //{
+            //    Departmentlist.Items.Add("Outreach");
+            //    frmOutreach.Visible = true;
+            //}
+            //if (TeamType.Contains("4"))
+            //{
+            //    Departmentlist.Items.Add("Transport");
+            //    frmTransport.Visible = true;
+            //}
+            //if (TeamType.Contains("5"))
+            //{
+            //    Departmentlist.Items.Add("Vet");
+            //    frmVet.Visible = true;
+            //}
+            //if (TeamType.Contains("None")||(TeamType == ""))
+            //{
+            //    Departmentlist.Visible = false;
+            //}
 
             this.Page.DataBind();
         }
@@ -216,60 +265,67 @@ public partial class create_application : System.Web.UI.Page
             saved = SavingFiles.SaveAvailibility(Dayofweek, StartTime, EndTime, UserID);
         }
 
-        
+
 
 
         /*Insert stamtement order for application
          * 
-           APPLICANTID VARCHAR(25) NOT NULL,
-            FIRSTNAME VARCHAR(50) NOT NULL, 
-            LASTNAME VARCHAR(50) NOT NULL,
-            EMAIL VARCHAR(50) NOT NULL,
-            PHONE INT NOT NULL, 
-            PASSWD VARCHAR(50) NOT NULL, 
-            ADDRESSID INT NOT NULL,
-            EMERGENCYID INT NOT NULL,
-            APPSTATUS VARCHAR(50) NOT NULL,
-            ALLERGIES VARCHAR(50) DEFAULT 'N/A',
-            RABVACCINEFLAG BIT NOT NULL,
-            VALIDPERMITFLAG BIT NOT NULL, 
-            VALIDPERMITATTACH VARBINARY(MAX),
-            PERMITCATEGORY INT DEFAULT '0', 
-            AVAILABILITYID INT NOT NULL,
-            RABATTACH VARBINARY(MAX),
-            RESUMEATTACH VARBINARY(MAX),
-            LETTEROFRECOM VARBINARY(MAX),
+           [PROFILEID] [int] NOT NULL,
+           [USERNAME] [varchar](50) NOT NULL,
+           [PHONE] [varchar](25) NOT NULL,
+           [DOB] [date] NOT NULL,
+           [GENDER] [varchar](25) NOT NULL,
+           [PROFSTATUS] [varchar](50) NOT NULL,
+           [USERTYPE] [varchar](50) NOT NULL,
+           [ALLERGIES] [bit] NOT NULL,
+           [ALLERGIESSPECIFY] [varchar](50) NULL,
+           [LIMITATIONS] [bit] NOT NULL,
+           [LIMITATIONSSPECIFY] [varchar](50) NULL,
+           [MEDICALCONDITIONS] [varchar](50) NULL,
+           [RABVACCINEFLAG] [bit] NOT NULL,
+           [RABATTACH] [varbinary](max) NULL,
+           [VALIDPERMITFLAG] [bit] NOT NULL,
+           [VALIDPERMITATTACH] [varbinary](max) NULL,
+           [PERMITCATEGORY] [int] NULL,
+           [RESUMEATTACH] [varbinary](max) NULL,
+           [LETTEROFRECOM] [varbinary](max) NULL,
+           [LASTUPDATED] [datetime] NOT NULL,
+           [LASTUPDATEDBY] [varchar](50) NOT NULL,
          * 
         */
 
         insert.CommandText = "insert into [dbo].[APPLICANT]"
-        + "([USERID],[FIRSTNAME],[LASTNAME],[EMAIL],[PHONE],[PASSWD],[ADDRESSID],[EMERGENCYID],"
-        +"[APPSTATUS],[ALLERGIES],[RABVACCINEFLAG],[VALIDPERMITFLAG],[VALIDPERMITATTACH],"
-        + "[PERMITCATEGORY],[AVAILABILITYID],[RABATTACH],[RESUMEATTACH],[LETTEROFRECOM])";
+        + "([PROFILEID],[USERID],[PHONE],[DOB],[GENDER],[PROFSTATUS],[USERTYPE],[ALLERGIES],[ALLERGIESSPECIFY],"
+        + "[LIMITATIONS],[LIMITATIONSSPECIFY],[MEDICALCONDITIONS],[RABVACCINEFLAG],[RABATTACH],[VALIDPERMITFLAG],[VALIDPERMITATTACH],"
+        + "[PERMITCATEGORY],[RESUMEATTACH],[LETTEROFRECOM],[LASTUPDATED],[LASTUPDATEDBY])";
 
-        //insert.CommandText += " values (@userid,@fName,@lName,@email,@phone,@addressid,@emergID,@appstat,@allergie,"
-        //+"@RabVac,@ValidPermit,@PermAttachment,@permCat,@AvalibilityID,@Rabattach,@resumeattach,@letterrecom";
+        insert.CommandText += " values (@PROFILEID,@USERID,@PHONE,@DOB,@GENDER,@PROFSTATUS,@USERTYPE,@ALLERGIES,@ALLERGIESSPECIFY,"
+        +"@LIMITATIONS,@LIMITATIONSSPECIFY,@MEDICALCONDITIONS,@RABVACCINEFLAG,@RABATTACH,@VALIDPERMITFLAG,@VALIDPERMITATTACH,"
+        + " @PERMITCATEGORY,@RESUMEATTACH,@LETTEROFRECOM,@LASTUPDATED,@LASTUPDATEDBY";
+
+        insert.Parameters.AddWithValue("@USERID", UserID);
+        insert.Parameters.AddWithValue("@PHONE", phoneNumber);
+        insert.Parameters.AddWithValue("@DOB", dOB);
+        insert.Parameters.AddWithValue("@GENDER", gender);
+        insert.Parameters.AddWithValue("@PROFSTATUS", AppStatues);
+        insert.Parameters.AddWithValue("@USERTYPE", UserID);
+        insert.Parameters.AddWithValue("@ALLERGIES", 1);
+        insert.Parameters.AddWithValue("@ALLERGIESSPECIFY", allergies);
+        insert.Parameters.AddWithValue("@LIMITATIONS", 1);
+        insert.Parameters.AddWithValue("@LIMITATIONSSPECIFY", limitation);
+        insert.Parameters.AddWithValue("@MEDICALCONDITIONS", medicalCondition);
+        insert.Parameters.AddWithValue("@RABVACCINEFLAG", 1);
+        insert.Parameters.AddWithValue("@RABATTACH", "");
+        insert.Parameters.AddWithValue("@VALIDPERMITFLAG", 1);
+        insert.Parameters.AddWithValue("@VALIDPERMITATTACH", "");
+        insert.Parameters.AddWithValue("@PERMITCATEGORY", "");
+        insert.Parameters.AddWithValue("@RESUMEATTACH", "");
+        insert.Parameters.AddWithValue("@LETTEROFRECOM", "");
+        insert.Parameters.AddWithValue("@LASTUPDATED", UserID);
+        insert.Parameters.AddWithValue("@LASTUPDATEDBY", DateTime.Now);
+
+        insert.ExecuteNonQuery();
         
-        //insert.Parameters.AddWithValue("@userid", UserID);
-        //insert.Parameters.AddWithValue("@fName", UserFirstN);
-        //insert.Parameters.AddWithValue("@lName", UserLastN);
-        //insert.Parameters.AddWithValue("@email", UserEmail);
-        //insert.Parameters.AddWithValue("@phone", phoneNumber);
-        //insert.Parameters.AddWithValue("@addressid", UserID);
-        //insert.Parameters.AddWithValue("@emergID", UserID);
-        //insert.Parameters.AddWithValue("@appstat", AppStatues);
-        //insert.Parameters.AddWithValue("@allergie", allergies);
-        //insert.Parameters.AddWithValue("@RabVac", YorN(vacinationdoc));
-        //insert.Parameters.AddWithValue("@ValidPermit", YorN(rehabpermit));
-        //insert.Parameters.AddWithValue("@PermAttachment", rehabFile);
-        //insert.Parameters.AddWithValue("@permCat", UserID);
-        //insert.Parameters.AddWithValue("@AvalibilityID", UserID);
-        //insert.Parameters.AddWithValue("@Rabattach", UserID);
-        //insert.Parameters.AddWithValue("@resumeattach", resumeFile);
-        //insert.Parameters.AddWithValue("@letterrecom", resumeFile);
-        //insert.Parameters.AddWithValue("@lastUpdatedBy", UserID);
-        //System.Diagnostics.Debug.WriteLine(insert.CommandText);
-        //insert.ExecuteNonQuery();
         if (saved)
         {
             AppStatues = "Started";
@@ -329,7 +385,7 @@ public partial class create_application : System.Web.UI.Page
 
             SQLisConnect.SQLConnection();
 
-            Statement = "SELECT " + Attri + " from dbo." + Enti + " WHERE " + PrimKey + "=" + UserID;
+            Statement = "SELECT " + Attri + " from dbo." + Enti + " WHERE " + PrimKey + "='" + UserID+"'";
             HTMLField = SQLisConnect.DatabaseSelect(Statement);
             return HTMLField;
         }
@@ -357,7 +413,7 @@ public partial class create_application : System.Web.UI.Page
         {
             System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
             System.Data.SqlClient.SqlDataReader DataReader = null;
-            sc.ConnectionString = @"Server=SILAS-PC\LOCALHOST; Database=Lab2;Trusted_Connection=Yes;";
+            sc.ConnectionString = @"Server=SILAS-PC\LOCALHOST; Database=WLS;Trusted_Connection=Yes;";
             sc.Open();
             System.Diagnostics.Debug.WriteLine("databse connection opened");
             System.Data.SqlClient.SqlCommand sendComm = new System.Data.SqlClient.SqlCommand();
@@ -386,26 +442,6 @@ public partial class create_application : System.Web.UI.Page
 
     //Read data from DataBase.
 
-    protected void DisplayRecord_Click(object sender, EventArgs e)
-    {
-        System.Diagnostics.Debug.WriteLine("Display Driver/Equipment Record Button Pressed");
-        try
-        {
-            System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            sc.ConnectionString = @"Server=LOCALHOST; Database=WLS;Trusted_Connection=Yes;";
-            sc.Open();
-            System.Data.SqlClient.SqlCommand gridPopulate = new System.Data.SqlClient.SqlCommand();
-
-
-        }
-        catch (System.Data.SqlClient.SqlException sqlException)
-        {
-            // Throws database errors in a Message Box to alert the user
-            System.Diagnostics.Debug.WriteLine(sqlException.Message);
-        }
-
-    }
-
 
     public void UploadClick(object sender, EventArgs e)
     {
@@ -419,6 +455,7 @@ public partial class create_application : System.Web.UI.Page
             
             incomingFile = FileUploadpic.PostedFile;
             filetype = "Profile Picture";
+
         }
 
         /*Get all fields and insert them into the Applicant Table on the WLS Database*/ 
@@ -439,29 +476,76 @@ public partial class create_application : System.Web.UI.Page
             fileExtension = Path.GetExtension(incomingFile.FileName);
             //create a byte array to store the binary image data
 
-            filePath = "~/Data/UserData/" + filetype + "/" + UserID + "_" + fileName + "_" + fileSize;
+            filePath = "../Data/UserData/" + filetype + "/" + UserID + "_" + fileName + "_" + fileSize;
 
             incomingFile.SaveAs(Server.MapPath("~/Data/UserData/" + filetype + "/") + UserID + "_" + fileName + "_" + fileSize);
             
             uploaded = SavingFiles.UploadStatement(filetype, filePath, UserID);
             
-            switch (uploaded)
+            if (!(Filetype.SelectedIndex.Equals(0)||Filetype.SelectedIndex.Equals(null)))
             {
-                case 0:
-                    UploadLabel.Text.Equals("Please Select a File.");
-                    UploadLabel.ForeColor = System.Drawing.Color.Red;
-                    UploadLabel.Visible = true;
-                    break;
-                case 1:
-                    UploadLabel.Visible = true;
-                    break;
-                case 3:
-                    UploadLabel.Text = "ERROR While uploding Please Try Again.";
-                    UploadLabel.ForeColor = System.Drawing.Color.Red;
-                    UploadLabel.Visible = true;
-                    break;
+                switch (uploaded)
+                {
+                    case 0:
+                        UploadLabel.Text.Equals("Please Select a File.");
+                        UploadLabel.ForeColor = System.Drawing.Color.Red;
+                        UploadLabel.Visible = true;
+                        break;
+                    case 1:
+                        UploadLabel.Visible = true;
+                        break;
+                    case 3:
+                        UploadLabel.Text = "ERROR While uploding Please Try Again.";
+                        UploadLabel.ForeColor = System.Drawing.Color.Red;
+                        UploadLabel.Visible = true;
+                        break;
+                }
+
             }
         }
+    }
+    public void AddTeam(object sender, EventArgs e)
+    {
+        
+        if (!(Department.SelectedIndex.Equals(0)))
+        {
+            AlldepartLable = AlldepartLable + " " + Department.SelectedValue.ToString();
+            Departmentlist.Text = AlldepartLable.ToString();
+            Departmentlist.DataBind();
+            Departmentlist.Visible = true;
+                  
+            if (Department.SelectedValue.Contains("Animal")){
+                frmAnimalCare.Visible = true;
+            }
+            if (Department.SelectedValue.Contains("Other")){
+                frmFrontDesk.Visible = true;
+            }
+            if (Department.SelectedValue.Contains("Outreach")){
+                frmOutreach.Visible = true;
+            }
+            if (Department.SelectedValue.Contains("Transport")){
+                frmTransport.Visible = true;
+            }
+            if (Department.SelectedValue.Contains("Vet")){
+                frmVet.Visible = true;
+            }
+            Department.SelectedIndex = 0;
+            Department.DataBind();
+        }
+    }
+    protected void DayCheckedChanged(object sender, EventArgs e)
+    {
+        if(Day1.Equals(true))
+        { Day1St.Visible = true; Day1f.Visible = true; }
+        if (Day2.Equals(true))
+        { Day2St.Visible = true; Day2f.Visible = true; }
+        if (Day2.Equals(true))
+        { Day3St.Visible = true; Day3f.Visible = true; }
+        if (Day4.Equals(true))
+        { Day4St.Visible = true; Day4f.Visible = true; }
+        if (Day5.Equals(true))
+        { Day5St.Visible = true; Day5f.Visible = true; }
+
     }
 }
 

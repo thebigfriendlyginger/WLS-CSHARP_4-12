@@ -23,17 +23,21 @@ public class SavingFiles
         try
         {
             System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            sc.ConnectionString = @"Server=SILAS-PC\LOCALHOST; Database=Lab2;Trusted_Connection=Yes;";
+            sc.ConnectionString = @"Server=SILAS-PC\LOCALHOST; Database=WLS;Trusted_Connection=Yes;";
             sc.Open();
             System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
             insert.Connection = sc;
-            insert.CommandText = "INSERT INTO [dbo].[DataFiles]([FileType],[Filepath],[lastUpdatedBy],[lastupdated])";
-            insert.CommandText += "VALUES(@FileType, @Filepath, @username, @date);";
 
-            //insert.Parameters.AddWithValue("@PROFILEPICTURE", System.Data.SqlDbType.Image); 
             if (Filepath != "")
             {
 
+                insert.CommandText = "INSERT INTO [dbo].[datafiles]([Username],[FileType],[Filepath],[lastUpdatedBy],[lastupdated])";
+                insert.CommandText += "VALUES(@Username, @FileType, @Filepath, @username, @date);";
+
+                //insert.Parameters.AddWithValue("@PROFILEPICTURE", System.Data.SqlDbType.Image); 
+           
+                insert.Parameters.AddWithValue("@Username", UserID);
+                //insert.Parameters.AddWithValue("@ProfileID", UserID);
                 insert.Parameters.AddWithValue("@FileType", FileType);
                 insert.Parameters.AddWithValue("@Filepath", Filepath);
                 insert.Parameters.AddWithValue("@username", UserID);
@@ -145,7 +149,7 @@ public class SavingFiles
         { 
         
             System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            sc.ConnectionString = @"Server=SILAS-PC\LOCALHOST; Database=Lab2;Trusted_Connection=Yes;";
+            sc.ConnectionString = @"Server=SILAS-PC\LOCALHOST; Database=WLS;Trusted_Connection=Yes;";
             sc.Open();
             System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
             insert.Connection = sc;
@@ -178,7 +182,7 @@ public class SavingFiles
         try
         {
             System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-            sc.ConnectionString = @"Server=SILAS-PC\LOCALHOST; Database=Lab2;Trusted_Connection=Yes;";
+            sc.ConnectionString = @"Server=SILAS-PC\LOCALHOST; Database=WLS;Trusted_Connection=Yes;";
             sc.Open();
             System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
             insert.Connection = sc;
