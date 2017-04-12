@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WLS-CSHARP", ".", "{3E44DD6A-BF1E-41B9-9278-5B2030A76A7F}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/WLS-CSHARP"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\WLS-CSHARP\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WLS-CSHARP\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WLS-CSHARP"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\WLS-CSHARP\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WLS-CSHARP\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54354"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E44DD6A-BF1E-41B9-9278-5B2030A76A7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E44DD6A-BF1E-41B9-9278-5B2030A76A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
