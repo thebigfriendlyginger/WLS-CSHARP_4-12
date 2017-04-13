@@ -9,6 +9,6 @@ public partial class clock_out_confirmation : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Response.AddHeader("REFRESH", "5;URL=index.aspx");
     }
 }

@@ -17,7 +17,7 @@ public partial class Create_Account : System.Web.UI.Page
     {
 
         System.Data.SqlClient.SqlConnection sc = new System.Data.SqlClient.SqlConnection();
-        sc.ConnectionString = @"Server = SILAS-PC\LOCALHOST; Database = WLS; Trusted_Connection = Yes;";
+        sc.ConnectionString = @"Server = LOCALHOST; Database = WLS; Trusted_Connection = Yes;";
         sc.Open();
         System.Data.SqlClient.SqlCommand insert = new System.Data.SqlClient.SqlCommand();
         insert.Connection = sc;
