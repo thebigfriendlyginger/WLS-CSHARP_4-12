@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head runat="server">
+  <head id="Head1" runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
@@ -33,9 +33,9 @@
     
     
   </head>
+
   <body>
-  <form runat="server">
-  
+  <form id="Form1" runat="server"> 
   <!-- container section start -->
   <section id="container" class="">
       <!--header start-->
@@ -145,7 +145,7 @@
       <div class="container">
       <div class="row"><!--START PAGE TITLE-->
       <h3 class="page-header">
-      	Personnel results
+      	Search Personnel
       </h3>
       </div> <!--END PAGE TITLE-->
       
@@ -156,21 +156,142 @@
       
 	</div> <!--END ROW TEXT-->
       
-      
-      <div class="row search-bar-main"> <!--START SEARCH ROW-->
+      <div class="row"> <!--START SEARCH ROW-->
+     		<div class="search-bar-main"> <!--DIV CLASS SEARCH BAR MAIN-->
       		<div class="col-md-7"> <!--START COL MD 3 (search)-->
       			<div class="navbar-form">
-                            <asp:Textbox id="searchterm" class="form-control" placeholder="Search personnel" type="text" runat="server"></asp:Textbox>
+                     <asp:Textbox id="searchterm" class="form-control" autofocus="true" placeholder="Search personnel" type="text" runat="server"></asp:Textbox>
                  </div>
 		  </div> <!--END COL MD 3-->
 		  
 		  <div class="col-md-3"> <!--START COL MD 3 (search)-->
-                <asp:Button ID="btnSearch" runat="server" class="search-button" Text="Search" onclick="btnSearch_Click" /> 
+<asp:Button ID="btnSearch" runat="server" class="search-button" Text="Search" onclick="btnSearch_Click" /> 
+                 
 		  </div> <!--END COL MD 6-->
+		  </div> <!--END DIV CLASS-->
 		  
 		  
 		</div> <!--END SEARCH ROW-->
+     
+     
+     <div class="row filter"> <!--START FILTER ROW-->
+      <!--collapse start-->
+                      <div class="panel-group m-bot20" id="accordion">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <h4 class="panel-title">
+                                      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                          Filter search results <b class="caret"></b>
+                                      </a>
+                                  </h4>
+                              </div>
+                              <div id="collapseOne" class="panel-collapse collapse in">
+                                  <div class="panel-body">
+                                     <div class="form-horizontal " method="get">
+                                     
+                                     
+                                  <div class="form-group"> <!--START DEPARTMENT-->
+                                     
+                                     
+                                      <label class="control-label col-md-2" for="inputSuccess">Department</label>
+                                      <div class="col-md-2">
+                                          <div class="checkbox">
+                                             <asp:CheckBox runat="server" ID="chkAnimalCare" Text="Animal Care" />
+                                          </div>
 
+                                          <div class="checkbox">
+                                              <asp:CheckBox runat="server" ID="chkOutreach" Text="Outreach" />
+                                          </div>
+                                          
+                                          <div class="checkbox">
+                                              <asp:CheckBox runat="server" ID="chkTransport" Text="Transport" />
+                                          </div>
+                                          
+                                          <div class="checkbox">
+                                              <asp:CheckBox runat="server" ID="chkStudent" Text="Student" />
+                                          </div>                                          
+                                          
+                                          <div class="checkbox">
+                                              <asp:CheckBox runat="server" ID="chkOther" Text="Other" />
+                                          </div>
+                                      </div>
+                                      
+                                      <!--AVAILIABILITY-->
+                                      <label class="control-label col-md-2" for="inputSuccess">Availability</label>
+                                      <div class="col-md-3">
+                                          <div class="checkbox">
+                                              <asp:CheckBox runat="server" ID="chkMonday" Text="Monday" />
+                                          </div>
+
+                                          <div class="checkbox">
+                                                <asp:CheckBox runat="server" ID="chkTuesday" Text="Tuesday" />
+                                          </div>
+                                          
+                                          <div class="checkbox">
+                                                <asp:CheckBox runat="server" ID="chkWednesday" Text="Wednesday" />
+                                          </div>
+                                          
+                                          <div class="checkbox">
+                                                <asp:CheckBox runat="server" ID="chkThursday" Text="Thursday" />
+                                          </div>
+                                          
+                                          <div class="checkbox">
+                                                <asp:CheckBox runat="server" ID="chkFriday" Text="Friday" />
+                                          </div>
+                                          
+                                          <div class="checkbox">
+                                                <asp:CheckBox runat="server" ID="chkSaturday" Text="Saturday" />
+                                          </div>
+                                          
+                                          <div class="checkbox">
+                                                <asp:CheckBox runat="server" ID="chkSunday" Text="Sunday" />
+                                          </div>
+                                      </div>
+                                      
+                                      <!--START TIME-->
+                                       <div class="col-md-3">
+                                          <div class="checkbox">
+                                              <label>
+                                                  <input type="checkbox" value="">
+                                                  Mornings
+                                              </label>
+                                          </div>
+
+                                          <div class="checkbox">
+                                              <label>
+                                                  <input type="checkbox" value="">
+                                                  Afternoons
+                                              </label>
+                                          </div>
+                                          
+                                          <div class="checkbox">
+                                              <label>
+                                                  <input type="checkbox" value="">
+                                                  Evenings
+                                              </label>
+                                          </div>
+                                        
+                                      </div>
+                                      <!--END TIME-->
+                                      
+                                      
+                                  </div> <!--END DEPARTMENT-->
+                            
+
+                              </div>
+                                    
+                                  </div>
+                              </div>
+                          </div>
+                         
+                          
+                      </div>
+                      <!--collapse end-->
+		  </div> <!--END ROW FILER-->
+     
+     
+     <div id="profiles" runat="server"></div>
+      
       
       
       
@@ -192,7 +313,6 @@
     <script src="NiceAdmin/js/jquery.nicescroll.js" type="text/javascript"></script><!--custome script for all page-->
     <script src="NiceAdmin/js/scripts.js"></script>
 
-  
     </form>
   </body>
 </html>
