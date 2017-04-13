@@ -38,11 +38,16 @@
 
     <div class="container">
 
-      <form class="login-form" action="NiceAdmin/index.aspx>        
+      <form runat="server" class="login-form" >        
         <div class="login-wrap clock-confirmation">
             <!--CREATE ACCOUNT CONFIRMATION-->
+            <br>
 			<p>You have made an account! <br>Visit your registered email for a confirmation message.</p>
+
         </div>
+
+          <div align ="center"><asp:Button ID="Mainbutton" runat="server" class="login login-button" Text="Go to Login page" onclick="Mainbutton_Click"/></div>
+            <br>
       </form>
     <div class="text-right">
             

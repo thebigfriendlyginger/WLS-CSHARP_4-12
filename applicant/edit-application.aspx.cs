@@ -21,7 +21,7 @@ public partial class applicant_edit_application : System.Web.UI.Page
             {
                 //UserID = (String)Session["Username"];
                 Enti = "Users";
-                PrimKey = "ztorok64";
+                PrimKey = (String)Session["Username"];
 
 
             }
@@ -67,8 +67,8 @@ public partial class applicant_edit_application : System.Web.UI.Page
                     txtGender.Text = volReader["GENDER"].ToString();
                     txtAllergies.Text = volReader["ALLERGIESSPECIFY"].ToString();
                     txtPhysicalLimitations.Text = volReader["LIMITATIONSSPECIFY"].ToString();
-                    txtConditions.Text = volReader["MEDICALCONDITIONS"].ToString();
-                    //TP = volReader["TP"].ToString();
+                    txtConditions.Text = volReader["CONDITIONS"].ToString();
+                    TP = volReader["TP"].ToString();
                     lblStatus.Text = volReader["PROFSTATUS"].ToString();
                 }
             }

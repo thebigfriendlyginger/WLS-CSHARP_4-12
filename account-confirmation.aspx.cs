@@ -9,6 +9,10 @@ public partial class account_confirmation : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+     
+    }
+    protected void Mainbutton_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("login.aspx");
     }
 }
