@@ -198,6 +198,9 @@ public partial class applicant_edit_application : System.Web.UI.Page
                 }
             }
 
+            insert.CommandText = "";
+            insert.CommandText = "Select * from VETERINARY where USERNAME = @USERNAME;";
+
             using (SqlDataReader volReader = insert.ExecuteReader())
             {
                 while (volReader.Read())
