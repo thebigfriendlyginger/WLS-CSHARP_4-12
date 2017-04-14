@@ -69,7 +69,7 @@
                             <span class="profile-ava">
                                 <img alt="Sam Winchester" height="39px" width="39px" src="../images/sam-winchester--avatar.png">
                             </span>
-                            <span class="username">Sam Winchester</span>
+                            <span class="username"><asp:Label ID="username" runat="server"></asp:Label></span>
                             <b class="caret"></b>
                         </a>
                         <!--LOGOUT-->
@@ -102,8 +102,8 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="view-application.html">View Application</a></li>                          
-                          <li><a class="" href="edit-application.html">Edit Application</a></li>
+                          <li><a class="" href="view-application.aspx">View Application</a></li>                          
+                          <li><a class="" href="edit-application.aspx">Edit Application</a></li>
                       </ul>
                   </li>  <!--END TIMESHEET-->
               
@@ -519,10 +519,26 @@
                     </tr>
                     <tr>
                     	<tr>
-                    	<td>Home Address</td>
-                    	<td>
-                            <asp:TextBox ID="txtAddress" runat="server" Text=""></asp:TextBox>
-                    	</td>
+                    	<td>Address Line 1:</td>
+                    	<td> <asp:TextBox ID="txtAddressLine1" runat="server" Text=""></asp:TextBox></td>
+                    	</tr>
+					 </tr>
+                        <tr>
+                    	<tr>
+                    	<td>Address Line 2:</td>
+                    	<td> <asp:TextBox ID="txtAddressLine2" runat="server" Text=""></asp:TextBox></td>
+                    	</tr>
+					 </tr>
+                        <tr>
+                    	<tr>
+                    	<td>City:</td>
+                    	<td> <asp:TextBox ID="txtCity" runat="server" Text=""></asp:TextBox></td>
+                    	</tr>
+					 </tr>
+                        <tr>
+                    	<tr>
+                    	<td>Zip Code:</td>
+                    	<td> <asp:TextBox ID="txtZip" runat="server" Text=""></asp:TextBox></td>
                     	</tr>
 					 </tr>
               		<tr>
@@ -740,43 +756,57 @@
             <div class="panel-body"> <!--START DIVE BODY-->
               <div class="row"> <!--START RWO PANEL BODY-->
                 <div class="col-md-3 col-lg-3 " align="center"> 
-                </div><!---END COL-MD-3--->
-                
-                 
+                </div><!---END COL-MD-3--->       
                   <table class="table table-user-information"> <!--TABLE USER INFO-->
                     <tbody>
                       <tr>
                         <td>Handling skills:</td>
-						  <td>Small mammals <br/>Large mammals <br/> RVS <br/> Eagles <br/> Small raptors <br/> Large raptors <br/> Reptiles
+						  <td>Small mammals: <br/>Large mammals: <br/>RVS: <br/>Eagles: <br/>Small Raptors: <br/>Large Raptors: <br/>Reptiles: 
+                     </td>
+                          <td><asp:DropDownList ID="ddlSmallMammals" runat="server"></asp:DropDownList>
+                              <br/>
+                              <asp:DropDownList ID="ddlLargeMammals" runat="server"></asp:DropDownList>
+                              <br/>
+                              <asp:DropDownList ID="ddlRVS" runat="server"></asp:DropDownList><br/>
+                              <asp:DropDownList ID="ddlEagles" runat="server"></asp:DropDownList><br/>
+                              <asp:DropDownList ID="ddlSmallRaptors" runat="server"></asp:DropDownList><br/>
+                              <asp:DropDownList ID="ddlLargeRaptors" runat="server"></asp:DropDownList><br/>
+                              <asp:DropDownList ID="ddlReptiles" runat="server"></asp:DropDownList>
                      </td>
                       </tr>
                       <tr>
-                      <tr>
-                        <td>Vet training</td>
+                        <td>Vet Training:</td>
 						   <td>
-                    		Vet
+                    		<asp:DropDownList ID="ddlVetTraining" runat="server"></asp:DropDownList>
                      	</td>
                       </tr>
                       </tr>
                        <tr>
-                        <td>Patient Care skills</td>
-						   <td>
-							   Medicating <br/>Bandaging <br/>Wound care <br/>Diagnostics <br/>anesthesia
+                        <td>Patient Care Skills:</td>
+                           <td>
+							   Medicating: <br/>Bandaging: <br/>Wound care: <br/>Diagnostics: <br/>Anesthesia: 
+                     		</td>
+                           <td>
+							   <asp:Label ID="lblMedicate" runat="server" Text=""></asp:Label><asp:DropDownList ID="ddlMedicate" runat="server"></asp:DropDownList><br/>
+                               <asp:Label ID="lblBandage" runat="server" Text=""></asp:Label><asp:DropDownList ID="ddlBandage" runat="server"></asp:DropDownList><br/>
+                               <asp:Label ID="lblWound" runat="server" Text=""></asp:Label><asp:DropDownList ID="ddlWound" runat="server"></asp:DropDownList><br/>
+                               <asp:Label ID="lblDiagnostics" runat="server" Text=""></asp:Label><asp:DropDownList ID="ddlDiagnostics" runat="server"></asp:DropDownList><br/>
+                               <asp:Label ID="lblAnesthesia" runat="server" Text=""></asp:Label><asp:DropDownList ID="ddlAnesthesia" runat="server"></asp:DropDownList>
                      		</td>
                       </tr>
                       <tr>
-                        <td>Special interests/ hobbies</td>
+                        <td>Special Interests/Hobbies:</td>
 						   <td>
-                     			N/A
+                     			<asp:TextBox ID="txtInterests" runat="server"></asp:TextBox>
                      	</td>
                       </tr>
                       
-                     <tr>
-                        <td>Notes</td>
+                     <%--<tr>
+                        <td>Notes:</td>
 						   <td>
-                     			Good with bears
+                     			<asp:Label ID="lblVetNotes" runat="server" Text=""></asp:Label>
                      	</td>
-                      </tr>
+                      </tr>--%>
                     
              
                     </tbody>

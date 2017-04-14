@@ -57,7 +57,7 @@
                         <span class="profile-ava">
                         <img alt="Sam Winchester" height="39px" width="39px" src="../images/sam-winchester--avatar.png">
                         </span>
-                        <span class="username">Sam Winchester</span>
+                        <span class="username"><asp:Label ID="username" runat="server"></asp:Label></span>
                         <b class="caret"></b>
                         </a>
                         <!--LOGOUT-->
@@ -89,8 +89,8 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                         </a>
                         <ul class="sub">
-                           <li><a class="" href="view-application.html">View Application</a></li>
-                           <li><a class="" href="edit-application.html">Edit Application</a></li>
+                           <li><a class="" href="view-application.aspx">View Application</a></li>
+                           <li><a class="" href="edit-application.aspx">Edit Application</a></li>
                         </ul>
                      </li>
                      <!--END TIMESHEET-->
@@ -121,14 +121,14 @@
     </div>  <!--END ROW SAVE BUTTON-->
 
 <%--<form id="Form2" runat="server">--%>
-   <div class="row"> <!--ROW ACCEPT REJECT-->
+   <div class="row" id="frmARButtons" runat="server"> <!--ROW ACCEPT REJECT-->
      	<div class="col-md-6">
              <table class="table">
                  <tbody>
                      <tr>
                          <asp:Label ID="lblARApplication" runat="server" CssClass="col-md-6" Text="Accept or Reject Application"></asp:Label>
      		            <td><asp:Button ID="btnAccept" CssClass="edit-button" runat="server" Text="Accept" BackColor="#387666" OnClick="btnAccept_Click" /></td>
-                         <td><asp:Button ID="btnReject" CssClass="edit-button" runat="server" Text="Reject" BackColor="#FF4242" OnClick="btnReject_Click" /></td>
+                         <td><asp:Button ID="btnReject" CssClass="edit-button" runat="server" Text="Reject" BackColor="#990000" OnClick="btnReject_Click" /></td>
                          </tr>
                      </tbody>
                  </table>
@@ -562,7 +562,7 @@
                     <tr>
                         <td>Physical Limitations:</td>
                         <td>
-                            <asp:Label ID="lblLimitations" runat="server" Text=""></asp:Label>
+                            <asp:Label ID="lblPhysicalLimitations" runat="server" Text=""></asp:Label>
                         </td>
                       </tr>
                     </tr>
@@ -651,43 +651,56 @@
             <div class="panel-body"> <!--START DIVE BODY-->
               <div class="row"> <!--START RWO PANEL BODY-->
                 <div class="col-md-3 col-lg-3 " align="center"> 
-                </div><!---END COL-MD-3--->
-                
-                 
+                </div><!---END COL-MD-3--->       
                   <table class="table table-user-information"> <!--TABLE USER INFO-->
                     <tbody>
                       <tr>
                         <td>Handling skills:</td>
-						  <td>Small mammals <br/>Large mammals <br/> RVS <br/> Eagles <br/> Small raptors <br/> Large raptors <br/> Reptiles
+						  <td>Small mammals: <br/>Large mammals: <br/>RVS: <br/>Eagles: <br/>Small Raptors: <br/>Large Raptors: <br/>Reptiles: 
+                     </td>
+                          <td><asp:Label ID="lblSmallMammals" runat="server" Text=""></asp:Label><br/>
+                              <asp:Label ID="lblLargeMammals" runat="server" Text=""></asp:Label><br/>
+                              <asp:Label ID="lblRVS" runat="server" Text=""></asp:Label><br/>
+                              <asp:Label ID="lblEagles" runat="server" Text=""></asp:Label><br/>
+                              <asp:Label ID="lblSmallRaptors" runat="server" Text=""></asp:Label><br/>
+                              <asp:Label ID="lblLargeRaptors" runat="server" Text=""></asp:Label><br/>
+                              <asp:Label ID="lblReptiles" runat="server" Text=""></asp:Label>
                      </td>
                       </tr>
                       <tr>
                       <tr>
-                        <td>Vet training</td>
+                        <td>Vet Training:</td>
 						   <td>
-                    		Vet
+                    		<asp:Label ID="lblVetTraining" runat="server" Text=""></asp:Label>
                      	</td>
                       </tr>
                       </tr>
                        <tr>
-                        <td>Patient Care skills</td>
-						   <td>
-							   Medicating <br/>Bandaging <br/>Wound care <br/>Diagnostics <br/>anesthesia
+                        <td>Patient Care Skills:</td>
+                           <td>
+							   Medicating: <br/>Bandaging: <br/>Wound care: <br/>Diagnostics: <br/>Anesthesia: 
+                     		</td>
+                           <td>
+							   <asp:Label ID="lblMedicate" runat="server" Text=""></asp:Label><br/>
+                               <asp:Label ID="lblBandage" runat="server" Text=""></asp:Label><br/>
+                               <asp:Label ID="lblWound" runat="server" Text=""></asp:Label><br/>
+                               <asp:Label ID="lblDiagnostics" runat="server" Text=""></asp:Label><br/>
+                               <asp:Label ID="lblAnesthesia" runat="server" Text=""></asp:Label>
                      		</td>
                       </tr>
                       <tr>
-                        <td>Special interests/ hobbies</td>
+                        <td>Special Interests/Hobbies:</td>
 						   <td>
-                     			N/A
+                     			<asp:Label ID="lblInterests" runat="server" Text=""></asp:Label>
                      	</td>
                       </tr>
                       
-                     <tr>
-                        <td>Notes</td>
+                     <%--<tr>
+                        <td>Notes:</td>
 						   <td>
-                     			Good with bears
+                     			<asp:Label ID="lblVetNotes" runat="server" Text=""></asp:Label>
                      	</td>
-                      </tr>
+                      </tr>--%>
                     
              
                     </tbody>
@@ -700,7 +713,7 @@
         
       </div><!---END Second row--->
       
-   <!--END VET TEAM-->
+   <!--END VET TEAM--> 
 
      <!--START FRONT DESK TEAM INFO-->
         <div class="row" runat="server" id="frmFrontDesk">

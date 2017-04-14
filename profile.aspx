@@ -135,10 +135,6 @@
       <!--sidebar end-->
       <!--NAV END-->
       
-      
-      
-      
-
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper"> 
@@ -330,27 +326,27 @@
                       </tr>
                       <tr>
                       <tr>
-                        <td>Offsite display</td>
+                        <td>Offsite display:</td>
 						   <td>
                     		<asp:Label ID="lblOffsite" runat="server" Text=""></asp:Label>
                      	</td>
                       </tr>
                       </tr>
                        <tr>
-                        <td>Reptile Handling</td>
+                        <td>Reptile Handling:</td>
 						   <td>
                      			<asp:Label ID="lblReptileHandling" runat="server" Text=""></asp:Label>
                      		</td>
                       </tr>
                       <tr>
-                        <td>Reptiles Handling notes</td>
+                        <td>Reptiles Handling Notes:</td> 
 						   <td>
                      			<asp:Label ID="lblReptileHandlingNotes" runat="server" Text=""></asp:Label>
                      	</td>
                       </tr>
                       
                      <tr>
-                        <td>Falconers Knot</td>
+                        <td>Falconers Knot:</td>
 						   <td>
                      			<asp:Label ID="lblFalconersKnot" runat="server" Text=""></asp:Label>
                      	</td>
@@ -376,6 +372,7 @@
                      			<asp:Label ID="lblBirdsNotes" runat="server" Text=""></asp:Label>
                      	</td>
                       </tr>
+
              
                     </tbody>
                   </table>
@@ -596,7 +593,7 @@
                     <tr>
                         <td>Physical Limitations:</td>
                         <td>
-                            <asp:Label ID="lblLimitations" runat="server" Text=""></asp:Label>
+                            <asp:Label ID="lblPhysicalLimitations" runat="server" Text=""></asp:Label>
                         </td>
                       </tr>
                     </tr>
@@ -685,43 +682,56 @@
             <div class="panel-body"> <!--START DIVE BODY-->
               <div class="row"> <!--START RWO PANEL BODY-->
                 <div class="col-md-3 col-lg-3 " align="center"> 
-                </div><!---END COL-MD-3--->
-                
-                 
+                </div><!---END COL-MD-3--->       
                   <table class="table table-user-information"> <!--TABLE USER INFO-->
                     <tbody>
                       <tr>
                         <td>Handling skills:</td>
-						  <td>Small mammals <br/>Large mammals <br/> RVS <br/> Eagles <br/> Small raptors <br/> Large raptors <br/> Reptiles
+						  <td>Small mammals: <br/>Large mammals: <br/>RVS: <br/>Eagles: <br/>Small Raptors: <br/>Large Raptors: <br/>Reptiles: 
+                     </td>
+                          <td><asp:Label ID="lblSmallMammals" runat="server" Text=""></asp:Label><br/>
+                              <asp:Label ID="lblLargeMammals" runat="server" Text=""></asp:Label><br/>
+                              <asp:Label ID="lblRVS" runat="server" Text=""></asp:Label><br/>
+                              <asp:Label ID="lblEagles" runat="server" Text=""></asp:Label><br/>
+                              <asp:Label ID="lblSmallRaptors" runat="server" Text=""></asp:Label><br/>
+                              <asp:Label ID="lblLargeRaptors" runat="server" Text=""></asp:Label><br/>
+                              <asp:Label ID="lblReptiles" runat="server" Text=""></asp:Label>
                      </td>
                       </tr>
                       <tr>
                       <tr>
-                        <td>Vet training</td>
+                        <td>Vet Training:</td>
 						   <td>
-                    		Vet
+                    		<asp:Label ID="lblVetTraining" runat="server" Text=""></asp:Label>
                      	</td>
                       </tr>
                       </tr>
                        <tr>
-                        <td>Patient Care skills</td>
-						   <td>
-							   Medicating <br/>Bandaging <br/>Wound care <br/>Diagnostics <br/>anesthesia
+                        <td>Patient Care Skills:</td>
+                           <td>
+							   Medicating: <br/>Bandaging: <br/>Wound care: <br/>Diagnostics: <br/>Anesthesia: 
+                     		</td>
+                           <td>
+							   <asp:Label ID="lblMedicate" runat="server" Text=""></asp:Label><br/>
+                               <asp:Label ID="lblBandage" runat="server" Text=""></asp:Label><br/>
+                               <asp:Label ID="lblWound" runat="server" Text=""></asp:Label><br/>
+                               <asp:Label ID="lblDiagnostics" runat="server" Text=""></asp:Label><br/>
+                               <asp:Label ID="lblAnesthesia" runat="server" Text=""></asp:Label>
                      		</td>
                       </tr>
                       <tr>
-                        <td>Special interests/ hobbies</td>
+                        <td>Special Interests/Hobbies:</td>
 						   <td>
-                     			N/A
+                     			<asp:Label ID="lblInterests" runat="server" Text=""></asp:Label>
                      	</td>
                       </tr>
                       
-                     <tr>
-                        <td>Notes</td>
+                     <%--<tr>
+                        <td>Notes:</td>
 						   <td>
-                     			Good with bears
+                     			<asp:Label ID="lblVetNotes" runat="server" Text=""></asp:Label>
                      	</td>
-                      </tr>
+                      </tr>--%>
                     
              
                     </tbody>
