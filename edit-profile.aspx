@@ -213,7 +213,7 @@
                     <tr>
                         <td>Email:</td>
                         <td>
-                             <asp:TextBox ID="txtEmail" runat="server" Text=""></asp:TextBox></td>
+                             <asp:TextBox ID="txtEmail" runat="server" Text="" CssClass="form-control"></asp:TextBox></td>
                     </tr>
                     
                     </tbody>
@@ -244,41 +244,41 @@
                       <tr>
                         <td>Name:</td>
                         <td><div class="form-group">
-                            <asp:TextBox ID="txtEMCName" runat="server" Text=""></asp:TextBox>
+                            <asp:TextBox ID="txtEMCName" runat="server" Text="" CssClass="form-control"></asp:TextBox>
    							</div>
                         </td>
                       </tr>
                       <tr>
                         <td>Relation:</td>
                         <td>
-                            <asp:TextBox ID="txtEMCRelation" runat="server" Text=""></asp:TextBox>
+                            <asp:TextBox ID="txtEMCRelation" runat="server" Text="" CssClass="form-control"></asp:TextBox>
                         </td>
                       </tr>
                       <tr>
                         <td>Phone Number:</td>
-                        <td> <asp:TextBox ID="txtEMCPhone" runat="server" Text=""></asp:TextBox>
+                        <td> <asp:TextBox ID="txtEMCPhone" runat="server" Text="" CssClass="form-control"></asp:TextBox>
                         </td>
                       </tr>
                     </tr>
                     
                     	<tr>
                     	<td>Address Line 1:</td>
-                    	<td> <asp:TextBox ID="txtEMCAddress1" runat="server" Text=""></asp:TextBox></td>
+                    	<td> <asp:TextBox ID="txtEMCAddress1" runat="server" Text="" CssClass="form-control"></asp:TextBox></td>
                     	</tr>
 					 </tr>
                     	<tr>
                     	<td>Address Line 2:</td>
-                    	<td> <asp:TextBox ID="txtEMCAddress2" runat="server" Text=""></asp:TextBox></td>
+                    	<td> <asp:TextBox ID="txtEMCAddress2" runat="server" Text="" CssClass="form-control"></asp:TextBox></td>
                     	</tr>
 					 </tr>
                     	<tr>
                     	<td>City:</td>
-                    	<td> <asp:TextBox ID="txtEMCCity" runat="server" Text=""></asp:TextBox></td>
+                    	<td> <asp:TextBox ID="txtEMCCity" runat="server" Text="" CssClass="form-control"></asp:TextBox></td>
                     	</tr>
 					 </tr>
                     	<tr>
                     	<td>Zip Code:</td>
-                    	<td> <asp:TextBox ID="txtEMCZip" runat="server" Text=""></asp:TextBox></td>
+                    	<td> <asp:TextBox ID="txtEMCZip" runat="server" Text="" CssClass="form-control"></asp:TextBox></td>
                     	</tr>
 					 </tr>
 
@@ -371,54 +371,54 @@
                     <tbody>
                       <tr>
                         <td>Tours:</td>
-						  <td><asp:TextBox ID="txtTours" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtTours" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
                       <tr>
                         <td>Offsite display</td>
 						   <td>
-                    		<asp:TextBox ID="txtOffsite" runat="server"></asp:TextBox>
+                    		<asp:TextBox ID="txtOffsite" runat="server" CssClass="form-control"></asp:TextBox>
                      	</td>
                       </tr>
                       </tr>
                        <tr>
                         <td>Reptile Handling</td>
 						   <td>
-                     			<asp:TextBox ID="txtReptileHandling" runat="server"></asp:TextBox>
+                     			<asp:TextBox ID="txtReptileHandling" runat="server" CssClass="form-control"></asp:TextBox>
                      		</td>
                       </tr>
                       <tr>
                         <td>Reptiles Handling notes</td>
 						   <td>
-                     			<asp:TextBox ID="txtReptileHandlingNotes" runat="server"></asp:TextBox>
+                     			<asp:TextBox ID="txtReptileHandlingNotes" runat="server" CssClass="form-control"></asp:TextBox>
                      	</td>
                       </tr>
                       
                      <tr>
                         <td>Falconers Knot</td>
 						   <td>
-                     			<asp:TextBox ID="txtFalconersKnot" runat="server"></asp:TextBox>
+                     			<asp:TextBox ID="txtFalconersKnot" runat="server" CssClass="form-control"></asp:TextBox>
                      	</td>
                       </tr>
                       
                       <tr>
                         <td>Birds to handle:</td>
 						   <td>
-                     			<asp:TextBox ID="txtBirds" runat="server"></asp:TextBox>
+                     			<asp:TextBox ID="txtBirds" runat="server" CssClass="form-control"></asp:TextBox>
                      	</td>
                       </tr>
                         
                       <tr>
                         <td>Birds to remove from enclosue:</td>
 						   <td>
-                     			<asp:TextBox ID="txtBirdsRemove" runat="server"></asp:TextBox>
+                     			<asp:TextBox ID="txtBirdsRemove" runat="server" CssClass="form-control"></asp:TextBox>
                      	</td>
                       </tr>
                       <tr>
                        
                         <td>Birds to note:</td>
 						   <td>
-                     			<asp:TextBox ID="txtBirdsNotes" runat="server"></asp:TextBox>
+                     			<asp:TextBox ID="txtBirdsNotes" runat="server" CssClass="form-control"></asp:TextBox>
                      	</td>
                       </tr>
              
@@ -451,72 +451,72 @@
                     <tbody>
                       <tr>
                         <td>Reptile Room:</td>
-						  <td><asp:TextBox ID="txtReptileRoom" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtReptileRoom" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
                     <tr>
                         <td>Reptile Room Soak Day:</td>
-						  <td><asp:TextBox ID="txtReptileRoomSD" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtReptileRoomSD" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
                         <tr>
                         <td>Education Snake Feeding Day:</td>
-						  <td><asp:TextBox ID="txtEducationSnake" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtEducationSnake" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
                         <tr>
                         <td>ICU:</td>
-						  <td><asp:TextBox ID="txtICU" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtICU" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
                         <tr>
                         <td>Aviary:</td>
-						  <td><asp:TextBox ID="txtAviary" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtAviary" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
                         <tr>
                         <td>Mammals:</td>
-						  <td><asp:TextBox ID="txtMammals" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtMammals" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
                         <tr>
                         <td>PU&E:</td>
-						  <td><asp:TextBox ID="txtPUE" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtPUE" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
                     <tr>
                         <td>PU&E Weigh Day:</td>
-						  <td><asp:TextBox ID="txtPUEWD" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtPUEWD" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
                         <tr>
                         <td>Fawns:</td>
-						  <td><asp:TextBox ID="txtFawns" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtFawns" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
                         <tr>
                         <td>Formula:</td>
-						  <td><asp:TextBox ID="txtFormula" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtFormula" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
                         <tr>
                         <td>Meals:</td>
-						  <td><asp:TextBox ID="txtMeals" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtMeals" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
                         <tr>
                         <td>Raptor Feed:</td>
-						  <td><asp:TextBox ID="txtRaptorFeed" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtRaptorFeed" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
                         <tr>
                         <td>ISO:</td>
-						  <td><asp:TextBox ID="txtISO" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtISO" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
                         <tr>
                         <td>Comments:</td>
-						  <td><asp:TextBox ID="txtACComments" runat="server"></asp:TextBox>
+						  <td><asp:TextBox ID="txtACComments" runat="server" CssClass="form-control"></asp:TextBox>
                      </td>
                       </tr>
 
@@ -560,40 +560,40 @@
                       </tr>
                       <tr>
                         <td>DOB:</td>
-                        <td> <asp:TextBox ID="txtDOB" runat="server" Text=""></asp:TextBox>
+                        <td> <asp:TextBox ID="txtDOB" runat="server" Text="" CssClass="form-control"></asp:TextBox>
                         </td>
                       </tr>
                       <tr>
                         <td>Gender:</td>
-                        <td> <asp:TextBox ID="txtGender" runat="server" Text=""></asp:TextBox>
+                        <td> <asp:TextBox ID="txtGender" runat="server" Text="" CssClass="form-control"></asp:TextBox>
                         </td>
                       </tr>
                     </tr>
                     	<tr>
                     	<td>Address Line 1:</td>
-                    	<td> <asp:TextBox ID="txtAddressLine1" runat="server" Text=""></asp:TextBox></td>
+                    	<td> <asp:TextBox ID="txtAddressLine1" runat="server" Text="" CssClass="form-control"></asp:TextBox></td>
                     	</tr>
 					 </tr>
                     	<tr>
                     	<td>Address Line 2:</td>
-                    	<td> <asp:TextBox ID="txtAddressLine2" runat="server" Text=""></asp:TextBox></td>
+                    	<td> <asp:TextBox ID="txtAddressLine2" runat="server" Text="" CssClass="form-control"></asp:TextBox></td>
                     	</tr>
 					 </tr>
                     	<tr>
                     	<td>City:</td>
-                    	<td> <asp:TextBox ID="txtCity" runat="server" Text=""></asp:TextBox></td>
+                    	<td> <asp:TextBox ID="txtCity" runat="server" Text="" CssClass="form-control"></asp:TextBox></td>
                     	</tr>
 					 </tr>
                     	<tr>
                     	<td>Zip Code:</td>
-                    	<td> <asp:TextBox ID="txtZip" runat="server" Text=""></asp:TextBox></td>
+                    	<td> <asp:TextBox ID="txtZip" runat="server" Text="" CssClass="form-control"></asp:TextBox></td>
                     	</tr>
 					 </tr>
               			<tr>
               			<td>Phone Number:</td>
               			<td>
               				<div class="form-group">
-   									 <asp:TextBox ID="txtPhone" runat="server" Text=""></asp:TextBox>
+   									 <asp:TextBox ID="txtPhone" runat="server" Text="" CssClass="form-control"></asp:TextBox>
    							</div>
                          </td>
 						</tr>
@@ -629,10 +629,7 @@
                         <td>Rabies Vaccinated w/in past 2 years:</td>
                         <td>
                          	<div class="form-group">
-                               <select class="form-control m-bot15">
-                                   <option>Yes</option>
-                                    <option>No</option>
-                                </select>
+                                 <asp:DropDownList ID="ddlRabiesVaccination" runat="server" CssClass="form-control m-bot15"></asp:DropDownList>
                          	</div>
                         </td>
                       </tr>
@@ -640,7 +637,7 @@
                         <td>Allergies:</td>
                         <td>
                         	<div class="form-group">
-   									 <asp:TextBox ID="txtAllergies" runat="server" Text=""></asp:TextBox>
+   									 <asp:TextBox ID="txtAllergies" runat="server" Text=""  CssClass="form-control"></asp:TextBox>
    							</div>
                         
                         </td>
@@ -649,7 +646,7 @@
                         <td>Pre-Existing Medical Conditions:</td>
                         <td>
                         	<div class="form-group">
-   									 <asp:TextBox ID="txtConditions" runat="server" Text=""></asp:TextBox>
+   									 <asp:TextBox ID="txtConditions" runat="server" Text="" CssClass="form-control"></asp:TextBox>
    							</div>
                         </td>
                       </tr>
@@ -658,7 +655,7 @@
                         <td>Physical Limitations:</td>
                         <td>
                         	<div class="form-group">
-   									 <asp:TextBox ID="txtPhysicalLimitations" runat="server" Text=""></asp:TextBox>
+   									 <asp:TextBox ID="txtPhysicalLimitations" runat="server" Text="" CssClass="form-control"></asp:TextBox>
    							</div>
                         </td>
                       </tr>
@@ -756,7 +753,7 @@
                         <td>Distance willing to travel:</td>
 						   <td>
                     		<div class="form-group">
-                                <asp:Label ID="txtTravel" runat="server" Text="Label"></asp:Label>
+                                <asp:Label ID="txtTravel" runat="server" Text="Label" CssClass="form-control"></asp:Label>
    							</div>
                      	</td>
                       </tr>
@@ -776,7 +773,7 @@
                         <td>Species limitation:</td>
 						   <td>
                      			<div class="form-group">
-   									 <asp:TextBox ID="txtLimitation" runat="server" Text=""></asp:TextBox>
+   									 <asp:TextBox ID="txtLimitation" runat="server" Text="" CssClass="form-control"></asp:TextBox>
    							</div>
                      </td>
                       </tr>
@@ -784,7 +781,7 @@
                         <td>Comments:</td>
 						   <td>
                      			<div class="form-group">
-   									 <asp:TextBox ID="txtTransportComments" runat="server" Text=""></asp:TextBox>
+   									 <asp:TextBox ID="txtTransportComments" runat="server" Text="" CssClass="form-control"></asp:TextBox>
    							</div>
                      </td>
                       </tr>
@@ -817,21 +814,21 @@
                         <td>Handling skills:</td>
 						  <td>Small mammals: <br/>Large mammals: <br/>RVS: <br/>Eagles: <br/>Small Raptors: <br/>Large Raptors: <br/>Reptiles: 
                      </td>
-                          <td><asp:DropDownList ID="ddlSmallMammals" runat="server"></asp:DropDownList>
+                          <td><asp:DropDownList ID="ddlSmallMammals" runat="server" CssClass="form-control m-bot15"></asp:DropDownList>
                               <br/>
-                              <asp:DropDownList ID="ddlLargeMammals" runat="server"></asp:DropDownList>
+                              <asp:DropDownList ID="ddlLargeMammals" runat="server" CssClass="form-control m-bot15"></asp:DropDownList>
                               <br/>
-                              <asp:DropDownList ID="ddlRVS" runat="server"></asp:DropDownList><br/>
-                              <asp:DropDownList ID="ddlEagles" runat="server"></asp:DropDownList><br/>
-                              <asp:DropDownList ID="ddlSmallRaptors" runat="server"></asp:DropDownList><br/>
-                              <asp:DropDownList ID="ddlLargeRaptors" runat="server"></asp:DropDownList><br/>
-                              <asp:DropDownList ID="ddlReptiles" runat="server"></asp:DropDownList>
+                              <asp:DropDownList ID="ddlRVS" runat="server" CssClass="form-control m-bot15"></asp:DropDownList><br/>
+                              <asp:DropDownList ID="ddlEagles" runat="server" CssClass="form-control m-bot15"></asp:DropDownList><br/>
+                              <asp:DropDownList ID="ddlSmallRaptors" runat="server" CssClass="form-control m-bot15"></asp:DropDownList><br/>
+                              <asp:DropDownList ID="ddlLargeRaptors" runat="server" CssClass="form-control m-bot15"></asp:DropDownList><br/>
+                              <asp:DropDownList ID="ddlReptiles" runat="server" CssClass="form-control m-bot15"></asp:DropDownList>
                      </td>
                       </tr>
                       <tr>
                         <td>Vet Training:</td>
 						   <td>
-                    		<asp:DropDownList ID="ddlVetTraining" runat="server"></asp:DropDownList>
+                    		<asp:DropDownList ID="ddlVetTraining" runat="server" CssClass="form-control m-bot15"></asp:DropDownList>
                      	</td>
                       </tr>
                       </tr>
@@ -841,17 +838,17 @@
 							   Medicating: <br/>Bandaging: <br/>Wound care: <br/>Diagnostics: <br/>Anesthesia: 
                      		</td>
                            <td>
-							   <asp:Label ID="lblMedicate" runat="server" Text=""></asp:Label><asp:DropDownList ID="ddlMedicate" runat="server"></asp:DropDownList><br/>
-                               <asp:Label ID="lblBandage" runat="server" Text=""></asp:Label><asp:DropDownList ID="ddlBandage" runat="server"></asp:DropDownList><br/>
-                               <asp:Label ID="lblWound" runat="server" Text=""></asp:Label><asp:DropDownList ID="ddlWound" runat="server"></asp:DropDownList><br/>
-                               <asp:Label ID="lblDiagnostics" runat="server" Text=""></asp:Label><asp:DropDownList ID="ddlDiagnostics" runat="server"></asp:DropDownList><br/>
-                               <asp:Label ID="lblAnesthesia" runat="server" Text=""></asp:Label><asp:DropDownList ID="ddlAnesthesia" runat="server"></asp:DropDownList>
+							   <asp:DropDownList ID="ddlMedicate" runat="server" CssClass="form-control m-bot15"></asp:DropDownList><br/>
+                               <asp:DropDownList ID="ddlBandage" runat="server" CssClass="form-control m-bot15"></asp:DropDownList><br/>
+                               <asp:DropDownList ID="ddlWound" runat="server" CssClass="form-control m-bot15"></asp:DropDownList><br/>
+                               <asp:DropDownList ID="ddlDiagnostics" runat="server" CssClass="form-control m-bot15"></asp:DropDownList><br/>
+                               <asp:DropDownList ID="ddlAnesthesia" runat="server" CssClass="form-control m-bot15"></asp:DropDownList>
                      		</td>
                       </tr>
                       <tr>
                         <td>Special Interests/Hobbies:</td>
 						   <td>
-                     			<asp:TextBox ID="txtInterests" runat="server"></asp:TextBox>
+                     			<asp:TextBox ID="txtInterests" runat="server" CssClass="form-control"></asp:TextBox>
                      	</td>
                       </tr>
                       

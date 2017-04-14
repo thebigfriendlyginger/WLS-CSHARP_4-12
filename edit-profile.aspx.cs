@@ -318,6 +318,8 @@ public partial class edit_profile : System.Web.UI.Page
         ddlDiagnostics.Items.Add(new ListItem("Yes", "1"));
         ddlAnesthesia.Items.Add(new ListItem("No", "0"));
         ddlAnesthesia.Items.Add(new ListItem("Yes", "1"));
+        ddlRabiesVaccination.Items.Add(new ListItem("No", "0"));
+        ddlRabiesVaccination.Items.Add(new ListItem("Yes", "1"));
     }
 
 
